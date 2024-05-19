@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="customer-login login-form">
+            <h2>Customer Login</h2>
+            <form action="/auth/login" method="POST">
+                <label for="customer-email">Email:</label>
+                <input type="email" id="customer-email" name="email" required>
+
+                <label for="customer-password">Password:</label>
+                <input type="password" id="customer-password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <h3>Not a member yet? Create an account now</h3>
+            <button onclick="window.location.href='/customer/register'">Sign up</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: none; /* Overrides background image */
+            background-color: black; /* Setting background color */
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .btn-square {
+            width: 230px; /*width  */
+            height: 230px; /*  height*/
+            border-radius: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        .btn-primary {
+            background-color: #007bff; 
+        }
+
+        .btn-secondary {
+            background-color: #6c757d; 
+        }
+
+        .btn-success {
+            background-color: #28a745; 
+        }
+
+        .btn-danger {
+            background-color: #dc3545; 
+        }
+
+        .btn-warning {
+            background-color: #ffc107; 
+        }
+
+        .btn-info {
+            background-color: #17a2b8; 
+        }
+
+        .btn-light {
+            background-color: #f8f9fa; 
+        }
+
+        .btn-dark {
+            background-color: #343a40; 
+        }
+
+        .btn-light,
+        .btn-dark {
+            color: #000 !important; 
+        }
+
+        h2 {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Welcome to the Admin Dashboard - {{ companyName }}</h2>
+        <div class="row mt-3 no-gutters">
+            <div class="col">
+                <a href="/admin/users" class="btn btn-square btn-primary">Users Management</a>
+            </div>
+            <div class="col">
+                <a href="/admin/customers" class="btn btn-square btn-secondary">Customers Management</a>
+            </div>
+            <div class="col">
+                <a href="/admin/enquiries" class="btn btn-square btn-success">Enquiries</a>
+            </div>
+        </div>
+        <div class="row mt-3 no-gutters">
+            <div class="col">
+                <a href="/admin/orders" class="btn btn-square btn-danger">Orders</a>
+            </div>
+            <div class="col">
+                <a href="/admin/advanced-search" class="btn btn-square btn-warning">Advanced Search</a>
+            </div>
+            <div class="col">
+                <a href="/logout" class="btn btn-square btn-info">Log Out</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

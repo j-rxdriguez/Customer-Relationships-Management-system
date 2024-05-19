@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New customer registration form</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+        <div class="customer-register-login-form">
+            <h2>Sign Up</h2>
+            <form action="/auth/register" method="POST">
+                <label for="customer-name">First Name:</label>
+                <input type="text" id="customer-name" name="firstName" required>
+
+                <label for="customer-middle-name">Middle Name:</label>
+                <input type="text" id="customer-middle-name" name="middleName">
+
+                <label for="customer-surname">Surname:</label>
+                <input type="text" id="customer-surname" name="surname" required>
+
+                <label for="customer-email-register">Email:</label>
+                <input type="email" id="customer-email-register" name="email" required>
+
+                <label for="customer-dob">Date of Birth:</label>
+                <input type="date" id="customer-dob" name="dob" required>
+
+                <label for="customer-address">Address:</label>
+                <input type="text" id="customer-address" name="address" required>
+
+                <label for="customer-postcode">Postcode:</label>
+                <input type="text" id="customer-postcode" name="postcode" required>
+
+                <label for="customer-phone">Phone Number:</label>
+                <input type="tel" id="customer-phone" name="phone" required>
+
+                <label for="customer-password-register">Password:</label>
+                <input type="password" id="customer-password-register" name="password" required>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
