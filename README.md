@@ -44,7 +44,7 @@ A customer relationship management (CRM) system built with Node.js, Express, and
 
 ## Usage
 
-- **Admin Registration:** Go to `/admin/register` to set up a new company.
+- **Admin Registration:** Go to `/admin/login` to set up a new company.
 - **Admin Login:** Go to `/admin/login` to log in as an admin.
 - **Customer Registration:** Go to `/customer/register` to register as a customer.
 - **Customer Login:** Go to `/customer/login` to log in as a customer.
