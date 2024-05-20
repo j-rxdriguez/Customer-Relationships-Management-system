@@ -1,8 +1,8 @@
-<!-- views/products.hbs -->
+<!-- views/orders.hbs -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -27,7 +27,7 @@
             background-color: #343a40;
             color: white;
         }
-        .btn-action {
+        .btn-complete {
             color: white !important;
         }
         .table-container {
@@ -38,27 +38,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>Products Management</h1>
+        <h1>Orders</h1>
         <div class="table-container">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Email</th>
+                        <th>Order Date</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each products}}
+                    {{#each orders}}
                     <tr>
-                        <td>{{this.productID}}</td>
-                        <td>{{this.productName}}</td>
-                        <td>{{this.category}}</td>
-                        <td>{{this.price}}</td>
+                        <td>{{this.orderID}}</td>
+                        <td>{{this.customerName}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.orderDate}}</td>
                         <td>
-                            <button class="btn btn-success btn-action">Edit</button>
+                            <button class="btn btn-success btn-complete">Mark as Completed</button>
                         </td>
                     </tr>
                     {{/each}}

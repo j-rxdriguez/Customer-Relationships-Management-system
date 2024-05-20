@@ -1,5 +1,7 @@
 //require
 const express = require('express');
+const crudRouter = require('./routes/crud');
+const adminRouter = require('./routes/admin');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -14,7 +16,7 @@ const User = require('./models/User');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
-const adminRouter = require('./routes/admin');
+//const adminRouter = require('./routes/admin');
 const productsRouter = require('./routes/products');
 
 // Initialize express app
@@ -55,10 +57,14 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 // Redirect to choose login type by default
 app.get('/', (req, res) => {
   res.redirect('/choose-login');
 });
+
 
 // Routes setup
 app.use('/', indexRouter);
@@ -79,6 +85,14 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+// Routes
+app.use('/api', crudRouter);
+app.use('/admin', adminRouter);
 
 // Start the server
 const PORT = process.env.PORT || 3001;

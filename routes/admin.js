@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const mongoose = require('mongoose');
+const Customer = require("../models/Customer");
+const Company = require("../models/Company");
+
 
 // Admin dashboard route
 router.get('/dashboard', (req, res) => {
@@ -20,7 +24,8 @@ router.get('/login', (req, res) => {
 // Admin registration process
 router.post('/register', async (req, res) => {
   try {
-    const { companyName, companyAddress, companyType } = req.body;
+    console.log(req.body);
+    // const { companyName, companyAddress, companyType } = req.body;
 
     if (!companyName || !companyAddress || !companyType) {
       req.flash('error_msg', 'Please provide all required fields');
@@ -28,11 +33,7 @@ router.post('/register', async (req, res) => {
     }
 
     // Saves company data to the database
-    const newCompany = new Company({
-      name: companyName,
-      address: companyAddress,
-      type: companyType
-    });
+    const newCompany = new Company(req.body);
     await newCompany.save();
 
     req.flash('success_msg', 'Company setup completed successfully');
@@ -52,6 +53,48 @@ router.post('/login', (req, res, next) => {
     failureFlash: true
   })(req, res, next);
 });
+
+
+// Add the customers route
+router.get('/customers', async (req, res) => {
+  const customers = await Customer.find();
+
+  res.render('customers', { title: 'Customers Management', customers: customers });
+});
+
+// Add the products route
+router.get('/products', (req, res) => {
+  res.render('products', { title: 'Products Management' });
+});
+
+// Add the search route
+router.get('/advanced-search', (req, res) => {
+  res.render('advanced-search', { title: 'Products Management' });
+});
+
+
+// Add the orders route
+router.get('/orders', (req, res) => {
+  res.render('orders', { title: 'Products Management' });
+});
+
+// Route to display all customers
+router.get('/customers', async (req, res) => {
+  try {
+      const customers = await Customer.find();
+      res.render('admin/customers', { customers });
+  } catch (error) {
+      res.status(500).send(error.message);
+  }
+});
+
+
+
+// Add the enquiries route
+router.get('/enquiries', (req, res) => {
+  res.render('enquiry', { title: 'Products Management' });
+});
+
 
 // Admin logout route
 router.get('/logout', (req, res) => {

@@ -1,15 +1,20 @@
 const mongoose = require('mongoose');
 
 const CompanySchema = new mongoose.Schema({
-  name: {
+  companyName: {
     type: String,
     required: true,
     unique: true
-  },
-  users: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  }]
-});
+  }
+  // ,
+  // companyType: {
+  //   type: String,
+  //   required: true,
+  // },
+  // companyAddress: {
+  //   type: String,
+  //   required: true,
+  // }
+})
 
 module.exports = mongoose.model('Company', CompanySchema);
